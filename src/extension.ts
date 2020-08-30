@@ -1,14 +1,11 @@
 import * as vscode from "vscode";
-import loadList from "./data/loadList";
+import { emojitos } from "./data/emojitos.json";
 
 export function activate(context: vscode.ExtensionContext) {
   // The commandId parameter must match the command field in package.json
   let disposable = vscode.commands.registerCommand(
     "emojito.showEmojiList",
     () => {
-      // load emoji list
-      const data = loadList();
-
       // access the editor
       const editor = vscode.window.activeTextEditor;
       if (!editor) {
@@ -20,16 +17,16 @@ export function activate(context: vscode.ExtensionContext) {
 
       // create quick pick
       const quickPick = vscode.window.createQuickPick();
-      quickPick.items = data.map((emoji) => ({
-        label: `${emoji.emoji} ${emoji.name}`,
-        description: `${emoji.command}`,
+      quickPick.items = emojitos.map((emoji) => ({
+        label: `${emoji.emoji}  •  ${emoji.description} `,
+        description: `${emoji.code}`,
       }));
 
       // add selection and disposal functions to quick pick
       quickPick.onDidChangeSelection(([item]) => {
         if (item) {
           editor.edit((edit) => {
-            edit.insert(position, String(item.description));
+            edit.insert(position, `${item.description} `);
           });
           quickPick.dispose();
         }
