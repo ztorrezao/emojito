@@ -1,26 +1,46 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
-import * as vscode from 'vscode';
+import * as vscode from "vscode";
+import loadList from "./data/loadList";
 
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
+  // The commandId parameter must match the command field in package.json
+  let disposable = vscode.commands.registerCommand(
+    "emojito.showEmojiList",
+    () => {
+      // load emoji list
+      const data = loadList();
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "emojito" is now active!');
+      // access the editor
+      const editor = vscode.window.activeTextEditor;
+      if (!editor) {
+        vscode.window.showWarningMessage("Open or create a document!");
+        return;
+      }
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('emojito.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
+      const position = editor.selection.active;
 
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from emojito!');
-	});
+      // create quick pick
+      const quickPick = vscode.window.createQuickPick();
+      quickPick.items = data.map((emoji) => ({
+        label: `${emoji.emoji} ${emoji.name}`,
+        description: `${emoji.command}`,
+      }));
 
-	context.subscriptions.push(disposable);
+      // add selection and disposal functions to quick pick
+      quickPick.onDidChangeSelection(([item]) => {
+        if (item) {
+          editor.edit((edit) => {
+            edit.insert(position, String(item.description));
+          });
+          quickPick.dispose();
+        }
+      });
+
+      quickPick.onDidHide(() => quickPick.dispose());
+      quickPick.show();
+    }
+  );
+
+  context.subscriptions.push(disposable);
 }
 
 // this method is called when your extension is deactivated

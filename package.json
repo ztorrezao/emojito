@@ -1,5 +1,5 @@
 {
-  "name": "emojito",
+	"name": "emojito",
 	"displayName": "emojito",
 	"description": "VS Code git emoji extension",
 	"version": "0.0.1",
@@ -10,14 +10,14 @@
 		"Other"
 	],
 	"activationEvents": [
-        "onCommand:emojito.helloWorld"
+		"onCommand:emojito.showEmojiList"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "emojito.helloWorld",
-				"title": "Hello World"
+				"command": "emojito.showEmojiList",
+				"title": "Emojito"
 			}
 		]
 	},
@@ -30,16 +30,20 @@
 		"test": "node ./out/test/runTest.js"
 	},
 	"devDependencies": {
-		"@types/vscode": "^1.48.0",
 		"@types/glob": "^7.1.3",
 		"@types/mocha": "^8.0.0",
 		"@types/node": "^14.0.27",
-		"eslint": "^7.6.0",
+		"@types/node-fetch": "^2.5.7",
+		"@types/vscode": "^1.48.0",
 		"@typescript-eslint/eslint-plugin": "^3.8.0",
 		"@typescript-eslint/parser": "^3.8.0",
+		"eslint": "^7.6.0",
 		"glob": "^7.1.6",
 		"mocha": "^8.0.1",
 		"typescript": "^3.8.3",
 		"vscode-test": "^1.4.0"
+	},
+	"dependencies": {
+		"node-fetch": "^2.6.0"
 	}
 }
