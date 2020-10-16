@@ -2,7 +2,7 @@
 	"name": "emojito",
 	"displayName": "emojito",
 	"description": "VS Code git emoji extension",
-	"version": "1.0.0-alpha",
+	"version": "0.0.1-alpha",
 	"publisher": "ztorrezao",
 	"engines": {
 		"vscode": "^1.48.0"
