@@ -7,7 +7,7 @@ Emojito is a simple and cool extension that helps you to insert meaningful emoji
 ## How To Use
 **It is simple:** With your commit message ( `COMMIT_EDITMSG` ) file opened, certify that you have your cursor where you want to insert the emoji, and from the *Command Palette* ( `Ctrl+Shift+P` ) select or search for **Emojito**, choose/search for the emoji that suits your commit message and **enjoy it**.
 
-<img src="https://github.com/ztorrezao/emojito/images/demo.gif">
+<img src="https://raw.githubusercontent.com/ztorrezao/emojito/master/images/demo.gif">
 
 <!-- ## Requirements
 If you have any requirements or dependencies, add a section describing those and how to install and configure them. -->
