@@ -18,7 +18,7 @@ export function activate(context: vscode.ExtensionContext) {
       // create quick pick
       const quickPick = vscode.window.createQuickPick();
       quickPick.items = emojitos.map((emoji) => ({
-        label: `${emoji.emoji}  •  ${emoji.description} `,
+        label: `${emoji.emoji} ${emoji.description} `,
         description: `${emoji.code}`,
       }));
 
