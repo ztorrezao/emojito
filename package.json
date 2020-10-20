@@ -1,9 +1,11 @@
 {
 	"name": "emojito",
-	"displayName": "emojito",
+	"icon": "https://github.com/ztorrezao/images/icon.png",
+	"displayName": "Emojito",
 	"description": "VS Code git emoji extension",
 	"version": "0.0.1-alpha",
 	"publisher": "ztorrezao",
+	"repository": "https://github.com/ztorrezao/emojito",
 	"engines": {
 		"vscode": "^1.48.0"
 	},
