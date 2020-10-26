@@ -22,6 +22,14 @@
 				"command": "emojito.showEmojiList",
 				"title": "Emojito"
 			}
+		],
+		"keybindings":[
+			{
+				"command": "emojito.showEmojiList",
+				"key": "ctrl+j",
+				"mac": "cmd+j",
+				"when": "editorTextFocus"
+			}
 		]
 	},
 	"scripts": {
