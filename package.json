@@ -3,7 +3,7 @@
 	"icon": "images/icon.png",
 	"displayName": "Emojito",
 	"description": "VS Code git emoji extension",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"publisher": "ztorrezao",
 	"repository": "https://github.com/ztorrezao/emojito",
 	"engines": {
